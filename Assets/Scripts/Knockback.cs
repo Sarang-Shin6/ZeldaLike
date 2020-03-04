@@ -9,27 +9,42 @@ public class Knockback : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        var player = other.GetComponent<PlayerMovement>();
+        var hasPlayer = player != null;
+        var thisIsPlayer = this.GetComponentInParent<PlayerMovement>() != null;
+
+        var enemy = other.GetComponent<Enemy>();
+        var hasEnemy = enemy != null;
+
+        //var breakable = other.GetComponent<Breakable>();
+        //var targetHasBreakable = breakable != null;
+
+        if (other.gameObject.CompareTag("Breakable") && thisIsPlayer)
         {
-            Rigidbody2D enemy = other.GetComponent<Rigidbody2D>();
-            if (enemy != null)
+            other.GetComponent<Pot>().Smash();
+        }
+        if (hasEnemy || hasPlayer)
+        {
+            Rigidbody2D hit = other.GetComponent<Rigidbody2D>();
+            if (hit != null)
             {
-                enemy.GetComponent<Enemy>().currentState = EnemyState.stagger;
-                Vector2 difference = enemy.transform.position - transform.position;
+                Vector2 difference = hit.transform.position - transform.position;
                 difference = difference.normalized * thrust;
-                enemy.AddForce(difference, ForceMode2D.Impulse);
-                StartCoroutine(knockCo(enemy));
+                hit.AddForce(difference, ForceMode2D.Impulse);
+
+                if (hasEnemy)
+                {
+                    hit.GetComponent<Enemy>().currentState = EnemyState.stagger;
+                    other.GetComponent<Enemy>().Knock(hit, knockTime);
+                }
+                if (hasPlayer)
+                {
+                    hit.GetComponent<PlayerMovement>().currentState = PlayerState.stagger;
+                    other.GetComponent<PlayerMovement>().Knock(knockTime);
+                }
+
             }
         }
     }
 
-    public IEnumerator knockCo(Rigidbody2D enemy)
-    {
-        if (enemy != null)
-        {
-            yield return new WaitForSeconds(knockTime);
-            enemy.velocity = Vector2.zero;
-            enemy.GetComponent<Enemy>().currentState = EnemyState.idle;
-        }
-    }
 }
