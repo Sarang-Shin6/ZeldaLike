@@ -376,7 +376,7 @@ GameObject:
   - component: {fileID: 264179299}
   m_Layer: 0
   m_Name: RightHitBox
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -442,7 +442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c542f738ce99084eaee3629baf503f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 5
+  thrust: 2
   knockTime: 0.4
 --- !u!1 &275504858
 GameObject:
@@ -8536,7 +8536,7 @@ GameObject:
   - component: {fileID: 996722168}
   m_Layer: 0
   m_Name: DownHitBox
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8597,7 +8597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c542f738ce99084eaee3629baf503f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 5
+  thrust: 2
   knockTime: 0.4
 --- !u!1 &1077406876
 GameObject:
@@ -14337,7 +14337,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1443722796}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.3, y: -6.4, z: 0}
+  m_LocalPosition: {x: -5.6, y: -1.44, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -14409,8 +14409,8 @@ MonoBehaviour:
   moveSpeed: 1.2
   target: {fileID: 0}
   homePosition: {fileID: 0}
-  chaseRadius: 4
-  attackRadius: 1
+  chaseRadius: 3
+  attackRadius: 1.7
   anim: {fileID: 0}
 --- !u!61 &1443722803
 BoxCollider2D:
@@ -14465,7 +14465,7 @@ GameObject:
   - component: {fileID: 1518431564}
   m_Layer: 0
   m_Name: UpHitBox
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14527,7 +14527,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c542f738ce99084eaee3629baf503f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 5
+  thrust: 2
   knockTime: 0.4
 --- !u!1 &1554475870
 GameObject:
@@ -16456,7 +16456,7 @@ GameObject:
   - component: {fileID: 1935418026}
   m_Layer: 0
   m_Name: LeftHitBox
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16518,7 +16518,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c542f738ce99084eaee3629baf503f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 5
+  thrust: 2
   knockTime: 0.4
 --- !u!1001 &1939095873
 PrefabInstance:
